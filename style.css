@@ -11405,3 +11405,9 @@ ul.slick-dots {
     .mail-cart button:hover {
       color: #63aa3d;
       background: white; }
+
+
+/* For hiding un-compiled vue.js expressions */
+[v-cloak] {
+  display: none;
+}

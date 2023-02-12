@@ -302,11 +302,10 @@
                     </div>
                     <div class=match_versus-wrap>
                         <div class=wrap_match-innerdetail id="pointsApp">
-                            <span v-if="points===null">loading.. </span>
-                            <div v-if="points!==null">
+                            <div>
                                 <ul class="point_table scrollable" >
-                                    <li class=clearfix v-for="item in points">
-                                        <div class=subPoint_table>
+                                    <li class=clearfix v-for="item in points" v-if="points!==null">
+                                        <div class=subPoint_table v-cloak>
                                             <div class="headline01 smallpoint">{{ item.rank }}</div>
                                             <div class="headline01 largepoint">
                                                 <span>{{ item.team }}</span>
@@ -858,22 +857,19 @@
   };
 
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const firestore = getFirestore();
 
+// Points Sections
 const pointsApp = new Vue({
   el: '#pointsApp',
   data:{
-    points: {}
+    points: null
   },
   async created() {
-        // Get tournament points
         const pointsCollection = collection(firestore, 'points-table');
         const pointsSnapshot = await getDocs(pointsCollection);
-        const pointsList = pointsSnapshot.docs.map(doc => doc.data());
-        this.points = pointsList;
+        this.points = pointsSnapshot.docs.map(doc => doc.data());;
   }
 })
 
