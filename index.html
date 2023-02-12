@@ -12,6 +12,10 @@
     <link rel=stylesheet href=style.css>
     <link rel=stylesheet type=text/css href=css/layerslider.css>
     <script src=js/vendor/modernizr.js></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    
 </head>
 <body><!--[if lt IE 10]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -80,7 +84,7 @@
                 Bay Blasters Tauranga</h2> -->
 
             <h2 class="ls-l bannertext layercontent03" data-ls="offsetxin:left; rotatexin:90 ; durationin: 3500;">
-                Super Cup</h2>
+                Action</h2>
 
             <h2 class="ls-l bannertext01 italic01 layercontent04"
                 data-ls="offsetxin:left; scalexin:9; durationin: 4000;">starts</h2><h4
@@ -101,12 +105,12 @@
         <div class=container>
             <div class=booking-fig><h2>Bay Blasters Cricket</h2></div>
             <div class=booking-content>
-                <a href=# class="btn btn-white">read more</a> 
+                <a href=#about class="btn btn-white">read more</a> 
                 <!-- <a href=bookTicket.html class="btn btn-red">book my ticket</a> -->
             </div>
         </div>
     </section>
-    <section class=about>
+    <section class=about id="about">
         <div class=container>
             <div class=row><h2 class=heading>About <span>Bay Blasters Club</span></h2>
 
@@ -297,241 +301,48 @@
                         </div>
                     </div>
                     <div class=match_versus-wrap>
-                        <div class=wrap_match-innerdetails>
-                            <ul class="point_table scrollable">
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">1</div>
-                                        <div class="headline01 largepoint">
-                                            <span>Bay Blasters Team 2</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
+                        <div class=wrap_match-innerdetail id="pointsApp">
+                            <span v-if="points===null">loading.. </span>
+                            <div v-if="points!==null">
+                                <ul class="point_table scrollable" >
+                                    <li class=clearfix v-for="item in points">
+                                        <div class=subPoint_table>
+                                            <div class="headline01 smallpoint">{{ item.rank }}</div>
+                                            <div class="headline01 largepoint">
+                                                <span>{{ item.team }}</span>
+                                                <table>
+                                                <tr>
+                                                    <td>
+                                                        <span>p</span><span>{{ item.played }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>avg</span><span>{{ item.points_avg }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>pts</span><span>{{ item.points }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>w</span><span>{{ item.won }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>l</span><span>{{ item.loss }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>tie</span><span>{{ item.tie }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>n/r</span><span>{{ item.runrate }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>bye</span><span>{{ item.bye }}</span>
+                                                    </td>
+                                                </tr>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">2</div>
-                                        <div class="headline01 largepoint">
-                                            <span>Element IMF Cadets 4th XI</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>                                     
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">3</div>
-                                        <div class="headline01 largepoint">
-                                            <span>Danphe Cricket Club</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">4</div>
-                                        <div class="headline01 largepoint">
-                                            <span>BAAJ 2nd XI</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">5</div>
-                                        <div class="headline01 largepoint">
-                                            <span>KKCC Seeka Ltd B Grade</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">6</div>
-                                        <div class="headline01 largepoint">
-                                            <span>MMCC 5th XI</span>
-                                          <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class=clearfix>
-                                    <div class=subPoint_table>
-                                        <div class="headline01 smallpoint">7</div>
-                                        <div class="headline01 largepoint">
-                                            <span>Aquinas College CC 2nd XI</span>
-                                            <table>
-                                            <tr>
-                                                <td>
-                                                    <span>p</span><span>5</span>
-                                                </td>
-                                                <td>
-                                                    <span>pts</span><span>37.0</span>
-                                                </td>
-                                                <td>
-                                                    <span>w</span><span>3</span>
-                                                </td>
-                                                <td>
-                                                    <span>l</span><span>2</span>
-                                                </td>
-                                                <td>
-                                                    <span>tie</span><span>0</span>
-                                                </td>
-                                                <td>
-                                                    <span>n/r</span><span>1</span>
-                                                </td>
-                                                <td>
-                                                    <span>bye</span><span>1</span>
-                                                </td>
-                                            </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1013,7 +824,7 @@
     <footer class=footer-type01>
         <div class=footer-type02>
             <div class=container>
-                <div class=row><a href=index.html class=footer-logo><img src=images/logo.png alt=image></a>
+                <div class=row><a href=index.html class=footer-logo><img src=images/Bay-Blasters-logos_white(1).png alt=image></a>
                     <div class=footer-container>
                         <ul class=clearfix>
                             <li><a href=https://www.facebook.com/BayBlastersTauranga class=bigsocial-link><i class="fa fa-facebook"></i></a></li>
@@ -1026,31 +837,46 @@
     </footer> 
 </div>
 <script src=js/vendor/vendor.min.js></script>
+<script src=js/env.js></script>
 <script async src=js/main.min.js></script>
 
 <!-- Firebase services -->
 <script type="module">
+
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+  
   const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: "bay-blasters-cricket.firebaseapp.com",
-    projectId: "bay-blasters-cricket",
-    storageBucket: "bay-blasters-cricket.appspot.com",
-    messagingSenderId: process.env.FIREBASE_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID,
-    measurementId: "G-1HRB2VF5XV"
+    apiKey: env.FIREBASE_API_KEY,
+    authDomain: env.FIREBASE_AUTH_DOMAIN,
+    projectId: env.FIREBASE_PROJECT_ID,
+    messagingSenderId: env.FIREBASE_SENDER_ID,
+    appId: env.FIREBASE_APP_ID,
+    databaseURL: env.FIREBASE_DATABASE_URL,
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const firestore = getFirestore();
+
+const pointsApp = new Vue({
+  el: '#pointsApp',
+  data:{
+    points: {}
+  },
+  async created() {
+        // Get tournament points
+        const pointsCollection = collection(firestore, 'points-table');
+        const pointsSnapshot = await getDocs(pointsCollection);
+        const pointsList = pointsSnapshot.docs.map(doc => doc.data());
+        this.points = pointsList;
+  }
+})
+
 </script>
 </body>
 
