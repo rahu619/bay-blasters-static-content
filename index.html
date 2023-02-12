@@ -843,16 +843,24 @@
         <div class=container>
             <div class=row>
                 <ul class=socialinfo>
-                    <li><a href="#">
+                    <li>
+                        <a href="#">
                         <div class=sociallink><i class="fa fa-twitter"></i></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aperiam ut necessitatibus,
-                            assumenda a maxime eos nulla maiores perspiciatis deleniti! A ratione ipsam magnam accusamus
-                            assumenda consectetur reiciendis hic obcaecati.</p></a></li>
-                    <li><a href="#">
+                        <p>
+                        Looking to play cricket in Tauranga? Look no further than Bay Blasters! We're a group of passionate cricket players who welcome players of all skill levels. 
+                        Join us for a great time on the pitch and to meet new friends who share your love for the sport. Contact us today to learn more about how you can get involved.
+                        </p>
+                    </a>
+                </li>
+                    <li>
+                        <a href="#">
                         <div class=sociallink><i class="fa fa-facebook"></i></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aperiam ut necessitatibus,
-                            assumenda a maxime eos nulla maiores perspiciatis deleniti! A ratione ipsam magnam accusamus
-                            assumenda consectetur reiciendis hic obcaecati.</p></a></li>
+                        <p>
+                         Looking to play cricket in Tauranga? Look no further than Bay Blasters! We're a group of passionate cricket players who welcome players of all skill levels. 
+                         Join us for a great time on the pitch and to meet new friends who share your love for the sport. Contact us today to learn more about how you can get involved.
+                        </p>
+                    </a>
+                </li>
                     
                 </ul>
             </div>
@@ -1075,8 +1083,33 @@
         </div>
     </footer> 
 </div>
-<script src=js/vendor/vendor.js></script>
-<script src=js/main.js></script>
+<script src=js/vendor/vendor.min.js></script>
+<script async src=js/main.min.js></script>
+
+<!-- Firebase services -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: "bay-blasters-cricket.firebaseapp.com",
+    projectId: "bay-blasters-cricket",
+    storageBucket: "bay-blasters-cricket.appspot.com",
+    messagingSenderId: process.env.FIREBASE_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: "G-1HRB2VF5XV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 
 </html>
