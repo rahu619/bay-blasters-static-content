@@ -7397,7 +7397,7 @@ h6 {
       position: relative; }
       .booking-fig h2:after {
         position: absolute;
-        background: url("images/logo.png");
+        background: url("images/Bay-Blasters-logos_black(1).png");
         content: '';
         width: 140px;
         top: -119px;
@@ -8840,10 +8840,23 @@ section {
     .point_table li:nth-of-type(even) {
       background: #232a32; }
 
+.subPoint_table table{
+  padding-left: 15px;
+}
+.subPoint_table td {
+  padding-right: 10px;
+}
+.subPoint_table td span{
+  padding-right: 5px;
+}
+.subPoint_table td span:last-of-type {
+  color: grey;
+}
+
 .subPoint_table .largepoint {
   position: relative;
   float: left;
-  width: 66.6666666667%;
+  width: 50.6666666667%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
@@ -8851,7 +8864,7 @@ section {
 .subPoint_table .smallpoint {
   position: relative;
   float: left;
-  width: 16.6666666667%;
+  width: 15.6666666667%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
@@ -8925,7 +8938,7 @@ section {
   .home_tInfo::-webkit-scrollbar {
     background: #232a32; }
   .subPoint_table {
-    padding: 0px 50px 0 200px; }
+    padding: 0px 30px 0 200px; }
   .wrap_match_next {
     padding-left: 0;
     padding-right: 0; }
